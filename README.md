@@ -10,13 +10,13 @@ Since the number of key/value pairs never exceed the number of buckets, every lo
 
 ## HashMap Methods 
 
-* __len__
-* is_empty
-* has_key
-* __getitem__
-* __setitem__
-* __delitem__
-* resize
+* `__len__`
+* `is_empty`
+* `has_key`
+* `__getitem__`
+* `__setitem__`
+* `__delitem__`
+* `resize`
 
 # Getting Started 
 
