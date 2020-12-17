@@ -25,3 +25,16 @@ Since the number of key/value pairs never exceed the number of buckets, every lo
 * Run `cd myhashmap`
 * Run `python3 main.py` to see a brief showdown of the HashMap.
 * Run `python3 hash_map_tests.py` to run tests on the HashMap. 
+
+### Testing 
+
+I have included six tests to run on the HashMap:
+
+* Can create a hashmap
+* Can insert into a hashmap
+* Can delete key from a hashmap
+* Can expand hashmap 
+* Can shrink hashmap
+* Can update values in a hashmap
+
+Thanks for checking out my implementation!
