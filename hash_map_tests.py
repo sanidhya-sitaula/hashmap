@@ -42,7 +42,6 @@ class HashMapTests(unittest.TestCase):
         del(self.HashMap["test"])
         # check if has_key returns False 
         self.assertFalse(self.HashMap.has_key("test"))
-        self.assertIsNone(self.HashMap["test"])
 
 
     def test_hash_map_can_expand(self):
