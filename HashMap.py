@@ -25,7 +25,7 @@ class HashMap():
             return ((self.a * hash(key) + self.b) % self.p) % self.N
 
 
-    def __init__(self, num_buckets = 64):
+    def __init__(self, num_buckets = 10):
         self.size = 0
         self.num_buckets = num_buckets
         # define linked_lists to handle collisions
@@ -59,19 +59,34 @@ class HashMap():
         curr_node = self.table[index].get_node_with_key(key)
         self.table[index].delete(key)
         self.size -= 1
-    
-    def print_table(self):
-        for i in range(self.num_buckets):
-            print(i, ": ", sep="", end="")
-            curr_bucket = self.table[i]
-            for key in curr_bucket:
-                print(key, sep="", end=" ")
-            print()
+        if (self.size < self.num_buckets / 4):
+            self.resize(False)
+
+    def resize(self, grow = True):
+        num_buckets_new = self.num_buckets * 2 if grow else int(self.num_buckets/2)
+        
+        if num_buckets_new < 8:
+            return 
+        else:
+            self.num_buckets = num_buckets_new
+        old_table = self.table 
+        self.table = [LinkedList() for i in range(self.num_buckets)]
+        self.size = 0 
+
+        for curr_bucket in old_table:
+            curr_node = curr_bucket.header.next
+            while curr_node != curr_bucket.trailer:
+                index = self.hash_function(curr_node.key)
+                self.table[index].add(curr_node.key, curr_node.value)
+                self.size += 1
+                curr_node = curr_node.next 
 
 
-hm = HashMap()
 
-for i in range(0, 10):
-    hm[i] = i + 3
 
-hm.print_table()
+        return self 
+
+
+   
+
+
