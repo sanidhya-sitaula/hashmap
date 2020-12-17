@@ -38,12 +38,38 @@ class HashMap():
     def is_empty(self):
         return self.size == 0
 
-    def __getitem__(self, key):
+    def has_key(self, key):
+
+        ''' 
+        returns true if HashMap has the given key, false if it doesn't.
+        '''
+
         index = self.hash_function(key)
-        curr_bucket = self.table[index].get_node_with_key(key) 
-        return curr_bucket.value
+        curr_bucket = self.table[index].get_node_with_key(key)
+        if curr_bucket:
+            return True
+        return False 
+
+    def __getitem__(self, key):
+
+        ''' 
+        if key is present in hashMap, returns the value, else, raises the KeyError exception. 
+        '''
+
+        if (self.has_key(key)):
+            index = self.hash_function(key)
+            curr_bucket = self.table[index].get_node_with_key(key) 
+            return curr_bucket.value
+
+        raise KeyError('That index does not exist in the HashMap.')
 
     def __setitem__(self, key, value):
+
+        '''
+        if the key already exists in the hashMap, updates the key to have the new value.
+        else, create a new entry with the given key and value. 
+        '''
+
         index = self.hash_function(key)
         curr_node = self.table[index].get_node_with_key(key)
         if curr_node:
@@ -55,24 +81,44 @@ class HashMap():
                 self.resize()
 
     def __delitem__(self, key):
+
+        '''
+        deletes the item if key exists
+        if it doesn't, raises the keyError exception.
+        '''
+
         index = self.hash_function(key)
         curr_node = self.table[index].get_node_with_key(key)
-        self.table[index].delete(key)
-        self.size -= 1
-        if (self.size < self.num_buckets / 4):
-            self.resize(False)
+        if curr_node:
+            self.table[index].delete(key)
+            self.size -= 1
+            if (self.size < self.num_buckets / 4):
+                self.resize(False)
+        else:
+            raise KeyError('That index does not exist in the HashMap.')
 
     def resize(self, grow = True):
+
+        ''' 
+        if size of HashMap >= number of buckets, double the number of buckets 
+        if size of HashMap < number of buckets / 4, shrink the hashMap by half. 
+    
+        '''
+
         num_buckets_new = self.num_buckets * 2 if grow else int(self.num_buckets/2)
         
+        # stop at 8 to avoid constant shrinking every time a deletion occurs 
         if num_buckets_new < 8:
             return 
+
         else:
             self.num_buckets = num_buckets_new
+
         old_table = self.table 
         self.table = [LinkedList() for i in range(self.num_buckets)]
         self.size = 0 
 
+        # copy data from old table to new table 
         for curr_bucket in old_table:
             curr_node = curr_bucket.header.next
             while curr_node != curr_bucket.trailer:
@@ -81,12 +127,16 @@ class HashMap():
                 self.size += 1
                 curr_node = curr_node.next 
 
-
-
-
         return self 
 
+# a function to print the hash table.
+def print_hash_table(ht):
+    for i in range(ht.num_buckets):
+        print (i, ":", sep = "", end = "")
+        curr_bucket = ht.table[i]
+        for key in curr_bucket:
+            print(key, end = " ")
+        print()
 
-   
-
+hm = HashMap()
 

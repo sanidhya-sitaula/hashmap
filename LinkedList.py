@@ -70,7 +70,7 @@ class LinkedList:
             if curr_node.key == key:
                 return curr_node
             curr_node = curr_node.next 
-        return 
+        return None 
 
 
     def get_node_with_value(self, value):
@@ -79,11 +79,11 @@ class LinkedList:
             if curr_node.value == value:
                 return curr_node
             curr_node = curr_node.next 
-        return 
+        return None
 
 
     def update (self, key, value):
-        curr_node = self.get_key(key)
+        curr_node = self.get_node_with_key(key)
         if curr_node:
             curr_node.value = value 
             return curr_node 
@@ -91,15 +91,16 @@ class LinkedList:
     
     def delete (self, key):
         curr_node = self.get_node_with_key(key)
-        curr_node.prev.next = curr_node.next 
-        curr_node.next.prev = curr_node.prev 
-        curr_node.disconnect()
-        self.size -= 1   
-
+        if curr_node:
+            curr_node.prev.next = curr_node.next 
+            curr_node.next.prev = curr_node.prev 
+            curr_node.disconnect()
+            self.size -= 1   
+        else:
+            return None
 
     def __getitem__(self, key):
         return self.get_node_with_key(key) 
-
     
     def __iter__(self):
         curr_node = self.header.next 
