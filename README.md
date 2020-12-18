@@ -24,6 +24,7 @@ Since the number of key/value pairs never exceed the number of buckets, every lo
   Uses the `[]` operator to delete a given key. If the key doesn't exist, raises a KeyError exception.
 * `resize()` :
   Resizes the hashmap by updating the number of buckets 
+* I have also included a global `print_hash_table(hashTable)` function that prints the hash table in an appropriate format.  
 
 # Getting Started 
 
