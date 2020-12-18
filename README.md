@@ -41,7 +41,7 @@ Since the number of key/value pairs never exceed the number of buckets, every lo
 
 ### Testing 
 
-I have included six tests to run on the HashMap:
+I have included six tests to run on the HashMap (using Python's testing framework `unittest`) :
 
 * Can create a hashmap
 * Can insert into a hashmap
