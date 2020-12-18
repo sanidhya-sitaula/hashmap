@@ -45,6 +45,6 @@ I have included six tests to run on the HashMap:
 * Can shrink hashmap
 * Can update values in a hashmap
 
-To see details about these tests, please check `hash_map_tests.py`. 
+To see details about the inputs I am giving to theses tests and to modify those inputs if you want, please check `hash_map_tests.py`. 
 
 Thanks for checking out my implementation!
