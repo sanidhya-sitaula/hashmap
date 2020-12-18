@@ -47,8 +47,9 @@ Since the number of key/value pairs never exceed the number of buckets, every lo
 
 You can use your HashMap in the terminal in the following way:
 
+* Make sure you're in the project folder.
 * After installing python, type `python3` to run python in the terminal. 
-* Go to the project folder
+
 
 ```
 >>> from HashMap import HashMap
