@@ -21,6 +21,10 @@ Since the number of key/value pairs never exceed the number of buckets, every lo
   Returns `true` if hashmap is empty, `false` if it is not empty.
 * `has_key (key)` :
   Returns `true` if hashmap contains a given `key` 
+* `get_keys()` :
+  Returns a list of all the keys in the HashMap
+* `get_values()`:
+  Returns a list of all the values in the HashMap
 * `__getitem__` :
   Uses the `[]` operator to get a key in the HashMap. If the `key` doesn't exist, raises a KeyError exception.
 * `__setitem__` :
