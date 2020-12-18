@@ -10,13 +10,20 @@ Since the number of key/value pairs never exceed the number of buckets, every lo
 
 ## HashMap Methods 
 
-* `__len__`
-* `is_empty`
-* `has_key`
+* `__len__` 
+  Returns the length of the hashmap. 
+* `is_empty()`
+  Returns `true` if hashmap is empty, `false` if it is not empty.
+* `has_key (key)`
+  Returns `true` if hashmap contains a given `key` 
 * `__getitem__`
+  Uses the `[]` operator to get a key in the HashMap. If the `key` doesn't exist, raises a KeyError exception.
 * `__setitem__`
+  Uses the `[]` operator to set a given key to a given value. If the key already exists, updates the value to the most recent assignment. 
 * `__delitem__`
+  Uses the `[]` operator to delete a given key. If the key doesn't exist, raises a KeyError exception.
 * `resize`
+  Resizes the hashmap by updating the number of buckets 
 
 # Getting Started 
 
