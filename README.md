@@ -43,6 +43,28 @@ Since the number of key/value pairs never exceed the number of buckets, every lo
 * **Run `python3 main.py` to see a brief showdown of the HashMap.**
 * Run `python3 hash_map_tests.py` to run tests on the HashMap. 
 
+## For quick use in the terminal 
+
+You can use your HashMap in the terminal in the following way:
+
+* After installing python, type `python3` to run python in the terminal. 
+* Go to the project folder
+
+```
+>>> from HashMap import HashMap
+>>> hm = HashMap()
+>>> hm[1] = 2 
+>>> hm[3] = 4
+>>> hm.get_keys()
+[1, 3]
+>>> hm.get_values()
+[2, 4]
+>>> del hm[1]
+>>> hm.get_keys()
+[3]
+```
+
+
 ### Testing 
 
 I have included six tests to run on the HashMap using Python's standard library testing framework `unittest`. This means that no further installation is required.
