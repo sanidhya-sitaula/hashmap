@@ -49,6 +49,26 @@ class HashMap():
         if curr_bucket:
             return True
         return False 
+    
+    
+    def get_keys(self):
+        lst = []
+        for i in range(self.num_buckets):
+            curr_bucket = self.table[i]
+            if curr_bucket.size != 0:
+                for key in curr_bucket:
+                    lst.append(key[0])
+        return lst
+    
+    def get_values(self):
+        lst = []
+        for j in range(self.num_buckets):
+            curr_bucket = self.table[j]
+            if curr_bucket.size!= 0:
+                for key in curr_bucket:
+                    lst.append(key[1])
+
+        return lst
 
     def __getitem__(self, key):
 
