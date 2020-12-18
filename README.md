@@ -10,7 +10,7 @@ This HashMap was implemented by using Linked Lists as buckets, where each linked
 <br />
 (where a and b are positive integers chosen from a specified range and are not multiples of N(number of buckets)).
 <br />
-
+<br />
 Since the number of key/value pairs never exceed the number of buckets, every lookup takes amortized constant time. On average, each bucket will contain one key/value pair (as ensured by our MAD compression function.) Resizing of the buckets happens only occasionally, further ensuring us that on average, insertion, updating, and deletion takes constant time. To be more specific, expansion or shrinking of the number of buckets only happens when either the key/value pairs exceed the number of buckets, or the number of key/value pairs is less than one-fourth of the number of buckets. 
 
 ## HashMap Methods 
