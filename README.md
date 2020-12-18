@@ -31,7 +31,7 @@ Since the number of key/value pairs never exceed the number of buckets, every lo
 * Clone this repo using the following command on your terminal : `git clone https://github.com/sanidhya-sitaula/myhashmap.git`
 * Make sure you have python installed! If not, download the latest version from python.org/downloads 
 * Run `cd myhashmap`
-* Run `python3 main.py` to see a brief showdown of the HashMap.
+* **Run `python3 main.py` to see a brief showdown of the HashMap.**
 * Run `python3 hash_map_tests.py` to run tests on the HashMap. 
 
 ### Testing 
